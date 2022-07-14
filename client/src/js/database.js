@@ -43,6 +43,7 @@ export const getDatabase = async () => {
   return result;
 };
 
+// dont need?
 // Deleting data from database
 export const deleteDb = async (id) => {
   console.log("Deleting text from database", id);
