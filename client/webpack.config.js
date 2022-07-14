@@ -17,13 +17,34 @@ module.exports = () => {
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
+      // Webpack plugin for dist generation
       new HtmlWebpackPlugin({
         template: "./index.html",
         title: "Text Editor",
       }),
+      // Inject service worker
       new InjectManifest({
         swSrc: "./src-sw.js",
         swDest: "src-sw.js",
+      }),
+      // Creates manifest.json
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: "Just Another Text Editor",
+        short_name: "Text Editor",
+        description: "Write short notes or bits of code!",
+        background_color: "#225ca3",
+        theme_color: "#225ca3",
+        start_url: "/",
+        publicPath: "/",
+        icons: [
+          {
+            src: path.resolve("src/images/logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join("assets", "icons"),
+          },
+        ],
       }),
     ],
 
@@ -35,7 +56,7 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules|bower_components)/,
           use: {
             loader: "babel-loader",
             options: {
@@ -51,51 +72,3 @@ module.exports = () => {
     },
   };
 };
-
-//WRONG
-// module.exports = () => {
-//   return {
-//     mode: "development",
-//     // Entry point for files
-//     entry: {
-//       main: "./src/js/index.js",
-//       install: "./src/js/install.js",
-//       cards: "./src/js/cards.js",
-//     },
-//     // Output for our bundles
-//     output: {
-//       filename: "[name].bundle.js",
-//       path: path.resolve(__dirname, "dist"),
-//     },
-//     plugins: [
-//       // Webpack plugin that generates our html file and injects our bundles.
-
-//       // Injects our custom service worker
-
-//       // Creates a manifest.json file.
-//       new WebpackPwaManifest({
-//         fingerprints: false,
-//         inject: true,
-//         name: "Text Editor",
-//         short_name: "Text",
-//         description: "Write short notes or bits of code!",
-//         background_color: "#225ca3",
-//         theme_color: "#225ca3",
-//         start_url: "/",
-//         publicPath: "/",
-//         icons: [
-//           {
-//             // EDIT SOURCE PATH
-//             src: path.resolve("src/images/logo.png"),
-//             sizes: [96, 128, 192, 256, 384, 512],
-//             destination: path.join("assets", "icons"),
-//           },
-//         ],
-//       }),
-//     ],
-
-//     module: {
-//       rules: [],
-//     },
-//   };
-// };
