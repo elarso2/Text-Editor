@@ -16,6 +16,8 @@ The following npm packages were necessary for this project:
 
 ## Demonstration
 
+My live application can be viewed on ![Heroku](https://ell-text-editor.herokuapp.com/).
+
 ## License
 
 MIT License
