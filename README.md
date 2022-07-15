@@ -4,19 +4,26 @@
 
 ## Description
 
-The purpose of this assignment was to build a Text Editor which allows users to write short notes or snippets of code, and develop it as a Progressive Web Application in order to allow users to utilize this application both on and offline.
+The purpose of this assignment was to build a Text Editor which allows users to write short notes or snippets of code, and develop it as a Progressive Web Application in order to allow users to utilize this application both on and offline. In order to do this, I had to utilize Webpack and build service worker and manifest plugins in my webpack.congif.js file.
 
 ## Dependencies
 
-The following npm packages were necessary for this project:
+Many npm packages were necessary for this project, but the most notable ones were:
 
 - IDB,
 - Express,
-- Concurrently
+- Concurrently,
+- Webpack
 
 ## Demonstration
 
 My live application can be viewed on ![Heroku](https://ell-text-editor.herokuapp.com/).
+
+In this image you can see my active site, along with the service worker information:
+![JATE and SW](/client/src/images/jateAndSw.PNG)
+
+In this image you can see my site once it has been installed, with the application icon on my desktop, along with Manifest data:
+![Installed and Manifest](/client/src/images/installed.PNG)
 
 ## License
 
