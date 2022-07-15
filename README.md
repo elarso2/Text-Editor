@@ -17,7 +17,7 @@ Many npm packages were necessary for this project, but the most notable ones wer
 
 ## Demonstration
 
-My live application can be viewed on ![Heroku](https://ell-text-editor.herokuapp.com/).
+My live application can be viewed on [Heroku](https://ell-text-editor.herokuapp.com/).
 
 In this image you can see my active site, along with the service worker information:
 ![JATE and SW](/client/src/images/jateAndSw.PNG)
